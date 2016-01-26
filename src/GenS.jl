@@ -112,8 +112,8 @@ and receiver locations relative to that grid, return a square array whose
 i,j^th^ entry indicates the pixels crossed on the path from transmitter i
 to receiver j, and their respective lengths.
 
-The grid is assumed to extend from the origin gridsize*width units in the
-horizontal (first coordinate) direction and gridsize*height coordinates
+The grid is assumed to extend from the origin gridsize\*width units in the
+horizontal (first coordinate) direction and gridsize\*height coordinates
 in the vertical (second coordinate) direction. Transmitter and receiver
 coordinates should be relative to the same origin. Otherwise, the number
 and arrangement of transducers is independent of grid specifications.
