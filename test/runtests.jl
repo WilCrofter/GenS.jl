@@ -1,5 +1,6 @@
 using GenS
 using Base.Test
+include("TestGenS.jl")
 
 # write your own tests here
-@test 1 == 1
+info(TestGenS.test_all())
