@@ -52,7 +52,7 @@ function gridCrossings(u::Array{Float64,1}, v::Array{Float64,1}, width::Int, hei
 end
 
 """
-segmentLenghts(u, v, width, height, gridsize)
+segmentLengths(u, v, width, height, gridsize)
     
 Given a line segment determined by 2 endpoints, u and v, and 2D grid determined
 by a width, height, and gridsize, return the indices of the pixels crossed
