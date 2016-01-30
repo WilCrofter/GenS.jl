@@ -7,7 +7,9 @@ If n is the number of transducers per probe, non-zero elements of a system matri
 """
 module GenS
 
-export wCrossings, gridCrossings, segmentLengths, probePos, genS, writeSData, readSData, readCell, writeCell
+include("CreateSMatrix.jl")
+
+export wCrossings, gridCrossings, segmentLengths, probePos, genS, writeSData, readSData, readCell, writeCell, createSMatrix, createSparseS
 
 
 """
@@ -52,7 +54,7 @@ function gridCrossings(u::Array{Float64,1}, v::Array{Float64,1}, width::Int, hei
 end
 
 """
-segmentLenghts(u, v, width, height, gridsize)
+segmentLengths(u, v, width, height, gridsize)
     
 Given a line segment determined by 2 endpoints, u and v, and 2D grid determined
 by a width, height, and gridsize, return the indices of the pixels crossed
