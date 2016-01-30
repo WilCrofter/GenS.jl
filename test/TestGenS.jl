@@ -277,10 +277,11 @@ function testCellIO(filepath::AbstractString)
     test_rwSData(filepath);
 end
 
+include("issue3.jl")
 
 function test_all()
     vcat(test_wCrossings(), test_gridCrossings(), test_segmentLengths(),
-         test_probePos(), test_rwSData(), test_genS(128));
+         test_probePos(), test_rwSData(), test_genS(128), issue3());
 end
 
 end

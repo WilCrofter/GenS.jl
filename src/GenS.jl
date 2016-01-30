@@ -48,9 +48,10 @@ function gridCrossings(u::Array{Float64,1}, v::Array{Float64,1}, width::Int, hei
     else
         return Array(Float64,0,2)
     end
-    crossings = hcat(u[1] + lambda[idx]*(v[1]-u[1]),
-                     u[2] + lambda[idx]*(v[2]-u[2]));
-    return crossings
+    cx = u[1] + lambda[idx]*(v[1]-u[1]);
+    cy = u[2] + lambda[idx]*(v[2]-u[2]);
+    idx = (0.0 .<= cx .<= kx[end]) & (0.0 .<= cy .<= ky[end]);
+    return hcat(cx[idx,:],cy[idx,:]);
 end
 
 """
@@ -68,7 +69,7 @@ function segmentLengths(u::Array{Float64,1}, v::Array{Float64,1}, width::Int, he
         return 1+floor(Int, (crossings[1:(n-1),:]+crossings[2:n,:])/(2*gridsize)), # indices
         sqrt((crossings[2:n,:]-crossings[1:(n-1),:]).^2 * vcat(1,1));   # lengths
     else
-        return Array(int,0,2), Array(Float64,0,1);
+        return Array(Int,0,2), Array(Float64,0,1);
     end
 end
 
