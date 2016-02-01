@@ -26,7 +26,7 @@ function createSparseS(n::Int, height::Int, width::Int, Sdata::Array{Any,2})
        for (i in 1:n)
            len = length(Sdata[i,j][2])
 	   I[ptr:(ptr+len-1)] = ones(Int32,len)*row
-           J[ptr:(ptr+len-1)] = (Sdata[i,j][1][:,1]-1)*width + Sdata[i,j][1][:,2]
+           J[ptr:(ptr+len-1)] = (Sdata[i,j][1][:,2]-1)*width + Sdata[i,j][1][:,1]
 	   V[ptr:(ptr+len-1)] = Sdata[i,j][2][:]
 	   row = row + 1
 	   ptr = ptr + len
@@ -42,8 +42,9 @@ function createSMatrix(n::Int, height::Int, width::Int, Sdata::Array{Any,2})
     row = 1
     for (j in 1:n)
        for (i in 1:n)
-	      col = (Sdata[i,j][1][:,1]-1)*width + Sdata[i,j][1][:,2]
+	      col = (Sdata[i,j][1][:,2]-1)*width + Sdata[i,j][1][:,1]
 	      out[:,row] = sparsevec(col,Sdata[i,j][2][:],height*width)
+	      println(row," ",col)
 	      row = row + 1
         end #i loop
     end #j loop
