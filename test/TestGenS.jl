@@ -152,6 +152,8 @@ function test_probePos()
                       185.5037831289550  95.60386240862468;
                       184.5248366873046 103.03969886892827;
                       183.5458902456542 110.47553532923183];
+    # Reverse probe2R order for consistency with previous work.
+    probe2R = probe2R[8:-1:1,:]
     # Calculate probes in Julia
     probe1, probe2 = probePos(8, r);
     probe1_OK =  all(abs(probe1-probe1R) .< 1e-9);
