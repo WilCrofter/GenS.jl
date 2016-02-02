@@ -103,6 +103,7 @@ of n equally spaced transducers which span the respective edges.
 """
 function probePos(n::Int, r::Array{Float64,2})
     probe1 = transducerPos(n, r[1,:], r[2,:]);
+    # 4,3 for consistency with previous work
     probe2 = transducerPos(n, r[4,:], r[3,:]);
     return probe1, probe2;
 end
